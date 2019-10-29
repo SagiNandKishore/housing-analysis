@@ -43,8 +43,8 @@ def get_lreg_value():
         year_built = int(year_built) if year_built else 2000                # Default Year Built = 2000
         zip_code = int(zip_code) if zip_code else 27519
 
-        X_Score_df = pd.DataFrame(columns = ['bathrooms','bedrooms','finishedSqFt','lastSoldPrice','latitude','longitude','lotSizeSqFt','taxAssessment','totalRooms','yearBuilt'])
-        X_Score_df = [[num_baths, num_bedrooms, sft, last_sold_price, address_lat, address_long, lot_size_sft, tax_assessment, total_rooms, year_built]]
+        X_Score_df = pd.DataFrame(columns = ['bathrooms','bedrooms','finishedSqFt','lastSoldPrice','lotSizeSqFt','taxAssessment','totalRooms','yearBuilt', 'zip_code'])
+        X_Score_df = [[num_baths, num_bedrooms, sft, last_sold_price, lot_size_sft, tax_assessment, total_rooms, year_built, zip_code]]
         caluclated_price = lreg_model.predict(X_Score_df)
 
         return f'Predicted Price is {caluclated_price}'
