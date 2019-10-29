@@ -29,18 +29,19 @@ def get_lreg_value():
         tax_assessment = request.form.get("tax_assessment")
         total_rooms = request.form.get("total_rooms")
         year_built = request.form.get("year_built")
+        zip_code = request.form.get("zip_code")
 
         num_bedrooms = int(num_bedrooms) if num_bedrooms else 0
         num_baths = float(num_baths) if num_baths else 0.0                  # Account for half baths
         sft = float(sft) if sft else 0.0
         last_sold_price = float(last_sold_price) if last_sold_price else 0.0
-        address_lat = float(address_lat) if address_lat else 35.7796       # Raleigh Latitude
-        address_long = float(address_long) if address_long else 78.6382    # Raleigh Longitude
+        #address_lat = float(address_lat) if address_lat else 35.7796       # Raleigh Latitude
+        #address_long = float(address_long) if address_long else 78.6382    # Raleigh Longitude
         lot_size_sft = int(lot_size_sft) if lot_size_sft else 0
         tax_assessment = float(tax_assessment) if tax_assessment else 0.0
         total_rooms = float(total_rooms) if total_rooms else 0.0
         year_built = int(year_built) if year_built else 2000                # Default Year Built = 2000
-
+        zip_code = int(zip_code) if zip_code else 27519
 
         X_Score_df = pd.DataFrame(columns = ['bathrooms','bedrooms','finishedSqFt','lastSoldPrice','latitude','longitude','lotSizeSqFt','taxAssessment','totalRooms','yearBuilt'])
         X_Score_df = [[num_baths, num_bedrooms, sft, last_sold_price, address_lat, address_long, lot_size_sft, tax_assessment, total_rooms, year_built]]
@@ -88,6 +89,10 @@ def get_lreg_value():
 
             <label for = "11" style="display:block">Year Built</label>
             <input id = "11" type = "text" name = "year_built" style="display:block">
+            <br />
+
+            <label for = "12" style="display:block">Zip Code</label>
+            <input id = "12" type = "text" name = "zip_code" style="display:block">
             <br />
 
             <input type="submit" formtarget = "_blank">
