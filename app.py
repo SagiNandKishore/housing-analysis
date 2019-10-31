@@ -174,7 +174,8 @@ def get_kmeans_value():
         axes.set_ylim([0, max(price_list)+50000])
         now_var = dt.now()
         random_value= random.randint(1,1000001)*10 + 12345
-        file_name=f".\\Images\\{now_var.strftime('%d%m%Y%H%M%S')}_{random_value}.png"
+        #file_name=f".\\Images\\{now_var.strftime('%d%m%Y%H%M%S')}_{random_value}.png"
+        file_name=f".\\Images\\Image.png"
         plt.savefig(file_name)
         return file_name
 
