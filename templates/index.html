@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="static/css/reset.css"/>
+        <link rel="stylesheet" href="static/css/style.css"/>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?/"></script>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    </head>
+    <body style="background-color:rgb(152,114,132)">
+            <form name="myForm" id="myForm">
+        <div class="grid-container">
+            <div class="Header">
+                <h1>How Much Is Your House Worth?</h1>
+            </div>
+            <div class="kmean">
+                <!--Kmean Output-->
+                <span id="kmean">
+                <img src="static/data/Image.png"></img>
+                </span>
+            </div>
+            <div class="lreg" id="lreg">
+                <!--LReg Output-->
+                Our Expert, Larry, using Linear Regresion analysis believes you should sell your house for $<span id="lregExpect">0</span>
+            </div>
+            <div class="Map" id="map">
+                <img src="static/data/cluster.png"></img>
+            </div>
+                <div class="Data">
+                    <div class="House-Data1">
+                            <label>House Area</label>
+                            <select id="houseArea" name="houseArea" onchange="updatePrices()"></select>
+                            <label>square feet</label>
+                            </br>
+                            <label>Plot Area</label>
+                            <select id="plotArea" name="plotArea" onchange="updatePrices()"></select>
+                            <label>acre</label>
+                            </br>
+                            <label>Year Built</label>
+                            <select id="year" name="year" onchange="updatePrices()"></select>
+                    </div>
+                    <div class="House-Data2">
+                            <label># of Bedrooms</label>
+                            <select id="beds" name="beds" onchange="updatePrices()"></select>
+                            </br>
+                            <label># of Bathrooms</label>
+                            <select id="baths" name="baths" onchange="updatePrices()"></select>
+                            </br>
+                            <label>Tax Assessment</label>
+                            <select id="taxA" name="taxA" onchange="updatePrices()"></select>
+                    </div>
+                    <div class="output">
+                            <label>House Address</label>
+                            <input type="text" class="form-control" id="address" name="address" value="15 E Peace St, Raleigh, NC 27604" style="width:60%;" onchange="updatePrices()">
+                            </br>
+                            <label>Zip Code</label>
+                            <input type="text" class="form-control" id="zip" name="zip" value="27604" onchange="updatePrices()">
+                        <!--Estimated Sale Price: $<span id="eValue">0</span>-->
+                    </div>
+                </div>
+          </div>
+        </form>
+          <script type="text/javascript" src="static/js/setup.js"></script>
+          <script type="text/javascript" src="static/js/map.js"></script>
+          
+    </body>
+</html>
